@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <td>ID</td>
+        <td>IMIĘ</td>
+        <td>NAZWISKO</td>
+        <td>PESEL</td>
+        <td><button (click) = "addClient()" style="background-color: #18A558;">DODAJ</button></td>
+    </tr>
+    <tr *ngFor = "let klient of klienci">
+        <td><input type="text" [(ngModel)] = "klient.idc"></td>
+        <td><input type="text" [(ngModel)] = "klient.imie"></td>
+        <td><input type="text" [(ngModel)] = "klient.nazwisko"></td>
+        <td><input type="text" [(ngModel)] = "klient.pesel"></td>
+        <td><button (click) = "removeClient(klient)">USUŃ</button></td>
+    </tr>
+</table>
