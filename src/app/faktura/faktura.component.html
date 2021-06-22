@@ -1,16 +1,18 @@
 <table>
     <tr>
         <td>ID</td>
-        <td>IMIĘ</td>
-        <td>NAZWISKO</td>
-        <td>PESEL</td>
-        <td><button style="background-color: #18A558;">DODAJ</button></td>
+        <td>ID KLIENTA</td>
+        <td>ID BILLBOARDU</td>
+        <td>KWOTA</td>
+        <td>NIP</td>
+        <td><button style="background-color: #18A558;" (click) = "addFaktura()">DODAJ</button></td>
     </tr>
-    <tr>
-        <td><input></td>
-        <td><input></td>
-        <td><input></td>
-        <td><input></td>
-        <td><button>USUŃ</button></td>
+    <tr *ngFor = "let faktura of faktury">
+        <td><input type="text" [(ngModel)] = "faktura.id"></td>
+        <td><input type="text" [(ngModel)] = "faktura.klientId"></td>
+        <td><input type="text" [(ngModel)] = "faktura.billboardId"></td>
+        <td><input type="text" [(ngModel)] = "faktura.kwota"></td>
+        <td><input type="text" [(ngModel)] = "faktura.nip"></td>
+        <td><button (click) = "removeFaktura(faktura)">USUŃ</button></td>
     </tr>
 </table>

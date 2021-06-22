@@ -1,16 +1,14 @@
 <table>
     <tr>
         <td>ID</td>
-        <td>IMIĘ</td>
-        <td>NAZWISKO</td>
-        <td>PESEL</td>
-        <td><button style="background-color: #18A558;">DODAJ</button></td>
+        <td>FAKTURA ID</td>
+        <td>ADRES</td>
+        <td><button style="background-color: #18A558;" (click) = "addBillboard()">DODAJ</button></td>
     </tr>
-    <tr>
-        <td><input></td>
-        <td><input></td>
-        <td><input></td>
-        <td><input></td>
-        <td><button>USUŃ</button></td>
+    <tr *ngFor = "let billboard of billboardy">
+        <td><input type="text" [(ngModel)] = "billboard.id" ></td>
+        <td><input type="text" [(ngModel)] = "billboard.fakturaId"></td>
+        <td><input type="text" [(ngModel)] = "billboard.adres"></td>
+        <td><button (click) = "removeBillboard(billboard)">USUŃ</button></td>
     </tr>
 </table>

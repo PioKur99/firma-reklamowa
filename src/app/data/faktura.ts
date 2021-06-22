@@ -1,10 +1,8 @@
-import { Billboard } from "./billboard";
-import { Klient } from "./klient";
 
 export class Faktura {
     id: number;
-    klient: Klient;
-    billboardy: Billboard[];
+    klientId: number;
+    billboardId: number;
     kwota: number;
     nip: String;
 }

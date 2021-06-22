@@ -7,6 +7,4 @@ export class Klient {
     nazwisko: String;
     pesel: String;
 
-    //faktury: Faktura[];
-    //billboardy: Billboard[];
 }
