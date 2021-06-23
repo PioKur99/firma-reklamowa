@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Faktura } from '../data/faktura';
 import { Klient } from '../data/klient';
 
 
@@ -10,14 +11,28 @@ import { Klient } from '../data/klient';
 })
 export class KlientComponent implements OnInit {
 
-  klienci: Klient[] = [{idc: 1, imie: "a", nazwisko:  "b", pesel: "12321"},
-                      {idc: 2, imie: "aaa", nazwisko:  "bbb", pesel: "1232232321"}
+  klienci: Klient[] = [{idc: 0, imie: "a", nazwisko:  "b", pesel: "12321"},
+                      {idc: 0, imie: "aaa", nazwisko:  "bbb", pesel: "1232232321"}
   ];
+
+  faktury: Faktura[] = [{id: 0, klientId: 0, kwota: 199.99, nip: "645293293293"},
+  {id: 0, klientId: 0, kwota: 299.99, nip: "645293293293"}
+];
+
+searchID: number = 0
   
 
   constructor(private dataManager: DataService) { }
 
   ngOnInit(): void {
+  }
+
+  getFaktury(): void {
+    this.dataManager.getFaktury().subscribe(
+      data => {
+        this.faktury = data
+      }
+    )
   }
 
   getClients(): void {

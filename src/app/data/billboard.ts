@@ -1,6 +1,10 @@
 
 export class Billboard {
     id: number;
-    fakturaId: number;
+    faktura: number;
+    adres: String;
+}
+
+export class postBillboard {
     adres: String;
 }

@@ -39,10 +39,17 @@ table, td, tr {
             width: 90%;
             color: #E1C340;
             font-size: 20px;
+            transition: 0.2s;
         }
 
         input:focus {
             background-color: #87ACA3;
         }
+        input:hover {
+            background-color: #87ACA3;
+        }
 }
 
+.add {
+    background-color: #18A558;
+}

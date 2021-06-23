@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { Billboard } from '../data/billboard';
+import { Billboard, postBillboard } from '../data/billboard';
 
 @Component({
   selector: 'app-billboard',
@@ -9,26 +9,29 @@ import { Billboard } from '../data/billboard';
 })
 export class BillboardComponent implements OnInit {
 
-  billboardy: Billboard[] = [{id: 1, fakturaId: 1, adres:  "Radzionków, ul. Grenadierów 25/3"},
-  {id: 2, fakturaId: 1, adres:  "Bytom, ul. Podmiejska 39/13"}
+  billboardy: Billboard[] = [{id: 1, faktura: 1, adres:  "Radzionków, ul. Grenadierów 25/3"},
+  {id: 2, faktura: 1, adres:  "Bytom, ul. Podmiejska 39/13"}
 ];
 
   constructor(private dataManager: DataService) { }
 
   ngOnInit(): void {
+    this.getBillboards()
   }
 
   getBillboards(): void {
     this.dataManager.getBillboardy().subscribe(
       billboardy => {
         this.billboardy = billboardy
+        console.log(billboardy)
       }
     )
   }
 
   addBillboard(): void {
-    this.billboardy.push({id: 3, fakturaId: 1, adres:  "Chorzów, ul. Batorego 42"});
-    this.dataManager.postBillboard(this.billboardy[this.billboardy.length - 1]).subscribe(
+    this.billboardy.push({id: 0, faktura: 0, adres:  "Chorzów, ul. Batorego 42"});
+    let toAdd: postBillboard = {adres: this.billboardy[this.billboardy.length - 1].adres}
+    this.dataManager.postBillboard(toAdd).subscribe(
       newBillboard => {
         console.log(newBillboard)
       }

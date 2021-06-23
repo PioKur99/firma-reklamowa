@@ -2,17 +2,14 @@
     <tr>
         <td>ID</td>
         <td>TREŚĆ</td>
-        <td>DATA POWIESZENIIA</td>
-        <td>DATA ŚCIĄGNIĘCIA</td>
-        <td>KWOTA</td>
-        <td><button style="background-color: #18A558;" (click) = "addReklama()">DODAJ</button></td>
+        <td><button class = "add" (click) = "addReklama()">DODAJ</button></td>
     </tr>
     <tr *ngFor = "let reklama of reklamy">
-        <td><input  type="text" [(ngModel)] = "reklama.id" ></td>
+        <td>{{reklama.id}}</td>
         <td><input type="text" [(ngModel)] = "reklama.tresc"></td>
-        <td><input type="text" [(ngModel)] = "reklama.dataPowieszenia"></td>
-        <td><input type="text" [(ngModel)] = "reklama.dataSciagniecia"></td>
-        <td><input type="text" [(ngModel)] = "reklama.kwota"></td>
-        <td><button (click) = "removeReklama(reklama)">USUŃ</button></td>
+        <td>
+            <button (click) = "removeReklama(reklama)">USUŃ</button>
+            <button class = "add" (click) = "editReklama(reklama)">ZAPISZ</button>
+        </td>
     </tr>
 </table>

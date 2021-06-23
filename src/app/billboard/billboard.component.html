@@ -3,12 +3,15 @@
         <td>ID</td>
         <td>FAKTURA ID</td>
         <td>ADRES</td>
-        <td><button style="background-color: #18A558;" (click) = "addBillboard()">DODAJ</button></td>
+        <td><button class = "add" (click) = "addBillboard()">DODAJ</button></td>
     </tr>
     <tr *ngFor = "let billboard of billboardy">
-        <td><input type="text" [(ngModel)] = "billboard.id" ></td>
-        <td><input type="text" [(ngModel)] = "billboard.fakturaId"></td>
+        <td>{{billboard.id}}</td>
+        <td><input type="text" [(ngModel)] = "billboard.faktura"></td>
         <td><input type="text" [(ngModel)] = "billboard.adres"></td>
-        <td><button (click) = "removeBillboard(billboard)">USUŃ</button></td>
+        <td>
+            <button (click) = "removeBillboard(billboard)">USUŃ</button>
+            <button class = "add" (click) = "editBillboard(billboard)">ZAPISZ</button>
+        </td>
     </tr>
 </table>

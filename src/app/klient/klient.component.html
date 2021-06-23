@@ -4,13 +4,37 @@
         <td>IMIĘ</td>
         <td>NAZWISKO</td>
         <td>PESEL</td>
-        <td><button (click) = "addClient()" style="background-color: #18A558;">DODAJ</button></td>
+        <td><button (click) = "addClient()" class = "add">DODAJ</button></td>
     </tr>
     <tr *ngFor = "let klient of klienci">
-        <td><input type="text" [(ngModel)] = "klient.idc"></td>
+        <td>{{klient.idc}}</td>
         <td><input type="text" [(ngModel)] = "klient.imie"></td>
         <td><input type="text" [(ngModel)] = "klient.nazwisko"></td>
         <td><input type="text" [(ngModel)] = "klient.pesel"></td>
-        <td><button (click) = "removeClient(klient)">USUŃ</button></td>
+        <td>
+            <button (click) = "removeClient(klient)">USUŃ</button>
+            <button class = "add" (click) = "editClient(klient)">ZAPISZ</button>
+        </td>
+    </tr>
+</table>
+
+<p class = "tag">Wprowadź ID klienta, by wyświetlić przypisane do niego faktury</p>
+<div class = "search">
+    <input type="text" [(ngModel)] = "searchID">
+    <button (click) = "getFaktury()">Pokaż</button>
+</div>
+
+<table *ngIf = "searchID != 0">
+    <tr>
+        <td>ID</td>
+        <td>ID KLIENTA</td>
+        <td>KWOTA</td>
+        <td>NIP</td>
+    </tr>
+    <tr *ngFor = "let faktura of faktury">
+        <td>{{faktura.id}}</td>
+        <td><input type="text" [(ngModel)] = "faktura.klientId"></td>
+        <td><input type="text" [(ngModel)] = "faktura.kwota"></td>
+        <td><input type="text" [(ngModel)] = "faktura.nip"></td>
     </tr>
 </table>
