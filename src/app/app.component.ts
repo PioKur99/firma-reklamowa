@@ -1,9 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from './data.service';
-import { Billboard } from './data/billboard';
-import { Faktura } from './data/faktura';
-import { Klient } from './data/klient';
-import { Reklama } from './data/reklama';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +8,7 @@ import { Reklama } from './data/reklama';
 export class AppComponent implements OnInit {
   
    
-  constructor(private manager: DataService) {}
+  constructor() {}
 
   ngOnInit() {
   }

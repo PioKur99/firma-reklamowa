@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Faktura } from '../data/faktura';
-import { Klient } from '../data/klient';
+import { Klient, postKlient } from '../data/klient';
 
 
 @Component({
@@ -46,7 +46,10 @@ searchID: number = 0
   addClient(): void {
     
     this.klienci.push({idc: 0, imie: "a", nazwisko:  "a", pesel: "0"});
-    this.dataManager.postKlient(this.klienci[this.klienci.length - 1]).subscribe(
+    let toAdd: postKlient = {imie: this.klienci[this.klienci.length -1].imie ,
+                            nazwisko: this.klienci[this.klienci.length -1].nazwisko,
+                            pesel: this.klienci[this.klienci.length -1].pesel}
+    this.dataManager.postKlient(toAdd).subscribe(
       newClient => {
         console.log(newClient)
       }

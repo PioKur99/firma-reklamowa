@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Klient } from './data/klient';
-import { Faktura } from './data/faktura';
+import { Klient, postKlient } from './data/klient';
+import { Faktura, postFaktura } from './data/faktura';
 import { Billboard, postBillboard } from './data/billboard';
 import { Reklama, postReklama } from './data/reklama';
 import { Observable } from 'rxjs';
@@ -32,7 +32,7 @@ export class DataService {
 
 
 
-  postKlient(klient: Klient): Observable<any> {
+  postKlient(klient: postKlient): Observable<any> {
     return this.http.post<Klient>("url", klient);
   }
 
@@ -40,7 +40,7 @@ export class DataService {
     return this.http.post<Billboard>("http://localhost:8080/take/firma/billboard", billboard);
   }
 
-  postFaktura(faktura: Faktura): Observable<any> {
+  postFaktura(faktura: postFaktura): Observable<any> {
     return this.http.post<Faktura>("url", faktura);
   }
 

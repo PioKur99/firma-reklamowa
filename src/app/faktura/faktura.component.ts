@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Billboard } from '../data/billboard';
-import { Faktura } from '../data/faktura';
+import { Faktura, postFaktura } from '../data/faktura';
 
 @Component({
   selector: 'app-faktura',
@@ -44,7 +44,11 @@ export class FakturaComponent implements OnInit {
 
   addFaktura(): void {
     this.faktury.push({id: 0, klientId: 0, kwota: 399.99, nip: "645293293293"});
-    this.dataManager.postFaktura(this.faktury[this.faktury.length - 1]).subscribe(
+    let toAdd: postFaktura = {klientId: this.faktury[this.faktury.length -1].klientId,
+                              kwota: this.faktury[this.faktury.length -1].kwota,
+                              nip: this.faktury[this.faktury.length -1].nip}
+
+    this.dataManager.postFaktura(toAdd).subscribe(
       newFaktura => {
         console.log(newFaktura)
       }

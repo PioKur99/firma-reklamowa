@@ -5,3 +5,9 @@ export class Faktura {
     kwota: number;
     nip: String;
 }
+
+export class postFaktura {
+    klientId: number;
+    kwota: number;
+    nip: String;
+}

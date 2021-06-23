@@ -9,6 +9,7 @@ import { FakturaComponent } from './faktura/faktura.component';
 import { BillboardComponent } from './billboard/billboard.component';
 import { ReklamaComponent } from './reklama/reklama.component';
 import { FormsModule } from '@angular/forms';
+import { PowieszoneComponent } from './powieszone/powieszone.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     FakturaComponent,
     BillboardComponent,
     ReklamaComponent,
+    PowieszoneComponent,
     
   ],
   imports: [

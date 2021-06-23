@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BillboardComponent } from './billboard/billboard.component';
 import { FakturaComponent } from './faktura/faktura.component';
 import { KlientComponent } from './klient/klient.component';
+import { PowieszoneComponent } from './powieszone/powieszone.component';
 import { ReklamaComponent } from './reklama/reklama.component';
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path: 'faktury', component: FakturaComponent},
   {path: 'billboardy', component: BillboardComponent},
   {path: 'reklamy', component: ReklamaComponent},
+  {path: 'powieszone-reklamy', component: PowieszoneComponent}
 ];
 
 @NgModule({
