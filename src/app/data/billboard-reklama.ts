@@ -1,11 +1,16 @@
-import { Billboard } from "./billboard";
-import { Reklama } from "./reklama";
 
 export class BillboardReklama {
-    id: number;
+    idBillboardu: number;
+    idReklamy: number;
     kwota: number;
     dataPowieszenia: String;
     dataSciagniecia: String;
-    billboard: Billboard;
-    reklama: Reklama;
+    
+}
+
+export class postBillboardReklama {
+    kwota: number;
+    dataPowieszenia: String;
+    dataSciagniecia: String;
+    
 }

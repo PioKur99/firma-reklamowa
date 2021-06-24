@@ -19,6 +19,7 @@ export class FakturaComponent implements OnInit {
 ];
 
   searchID: number = 0
+  showTable: boolean = false
 
   constructor(private dataManager: DataService) { }
 
@@ -26,6 +27,7 @@ export class FakturaComponent implements OnInit {
   }
 
   getBillboards(): void {
+    this.showTable = true
     this.dataManager.getBillboardy().subscribe(
       billboardy => {
         this.billboardy = billboardy

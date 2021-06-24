@@ -20,6 +20,7 @@ export class KlientComponent implements OnInit {
 ];
 
 searchID: number = 0
+showTable: boolean = false
   
 
   constructor(private dataManager: DataService) { }
@@ -28,6 +29,7 @@ searchID: number = 0
   }
 
   getFaktury(): void {
+    this.showTable = true
     this.dataManager.getFaktury().subscribe(
       data => {
         this.faktury = data

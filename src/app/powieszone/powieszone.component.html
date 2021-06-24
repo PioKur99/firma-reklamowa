@@ -1,1 +1,21 @@
-<p>powieszone works!</p>
+<table>
+    <tr>
+        <td>ID BILLBOARDU</td>
+        <td>ID REKLAMY</td>
+        <td>KWOTA</td>
+        <td>DATA POWIESZENIA</td>
+        <td>DATA ŚCIĄGNIĘCIA</td>
+        <td><button class = "add" (click) = "addPowieszona()">DODAJ</button></td>
+    </tr>
+    <tr *ngFor = "let reklama of powieszone">
+        <td><input type="text" [(ngModel)] = "reklama.idBillboardu"></td>
+        <td><input type="text" [(ngModel)] = "reklama.idReklamy"></td>
+        <td><input type="text" [(ngModel)] = "reklama.kwota"></td>
+        <td><input type="text" [(ngModel)] = "reklama.dataPowieszenia"></td>
+        <td><input type="text" [(ngModel)] = "reklama.dataSciagniecia"></td>
+        <td>
+            <button (click) = "removePowieszona(reklama)">USUŃ</button>
+            <button class = "add" (click) = "editPowieszona(reklama)">ZAPISZ</button>
+        </td>
+    </tr>
+</table>

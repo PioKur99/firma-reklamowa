@@ -5,6 +5,7 @@ import { Faktura, postFaktura } from './data/faktura';
 import { Billboard, postBillboard } from './data/billboard';
 import { Reklama, postReklama } from './data/reklama';
 import { Observable } from 'rxjs';
+import { BillboardReklama, postBillboardReklama } from './data/billboard-reklama';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,18 @@ export class DataService {
     return this.http.get<Reklama[]>("http://localhost:8080/take/firma/reklama");
   }
 
+  getPowieszoneReklamy(): Observable<BillboardReklama[]> {
+    return this.http.get<BillboardReklama[]>("url")
+  }
+
+  getFakturyKlienta(id: number): Observable<Faktura[]> {
+    return this.http.get<Faktura[]>("url" + id)
+  }
+
+  getBillboardyFaktury(id: number): Observable<Billboard[]> {
+    return this.http.get<Billboard[]>("url" + id)
+  }
+
 
 
   postKlient(klient: postKlient): Observable<any> {
@@ -46,6 +59,10 @@ export class DataService {
 
   postReklama(reklama: postReklama): Observable<any> {
     return this.http.post<Reklama>("http://localhost:8080/take/firma/reklama", reklama);
+  }
+
+  postPowieszonaReklama(reklama: postBillboardReklama): Observable<any> {
+    return this.http.post<BillboardReklama>("url", reklama)
   }
 
 
@@ -67,6 +84,10 @@ export class DataService {
     return this.http.delete<Reklama>("http://localhost:8080/take/firma/reklama/" + id);
   }
 
+  deletePowieszonaReklama(id: number): Observable<BillboardReklama> {
+    return this.http.delete<BillboardReklama>("url" + id)
+  }
+
 
 
   putKlient(klient: Klient): Observable<any> {
@@ -83,6 +104,10 @@ export class DataService {
 
   putReklama(reklama: Reklama): Observable<any> {
     return this.http.put<Reklama>("http://localhost:8080/take/firma/reklama", reklama);
+  }
+
+  putPowieszonaReklama(reklama: BillboardReklama): Observable<any> {
+    return this.http.put<BillboardReklama>("url", reklama)
   }
 
 }
