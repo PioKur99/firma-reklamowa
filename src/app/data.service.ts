@@ -16,7 +16,7 @@ export class DataService {
 
 
   getKlienci(): Observable<Klient[]> {
-    return this.http.get<Klient[]>("url");
+    return this.http.get<Klient[]>("http://localhost:8080/take/firma/klient");
   }
 
   getBillboardy(): Observable<Billboard[]> {
@@ -24,7 +24,7 @@ export class DataService {
   }
 
   getFaktury(): Observable<Faktura[]> {
-    return this.http.get<Faktura[]>("url");
+    return this.http.get<Faktura[]>("http://localhost:8080/take/firma/faktura");
   }
 
   getReklamy(): Observable<Reklama[]> {
@@ -46,7 +46,7 @@ export class DataService {
 
 
   postKlient(klient: postKlient): Observable<any> {
-    return this.http.post<Klient>("url", klient);
+    return this.http.post<Klient>("http://localhost:8080/take/firma/klient", klient);
   }
 
   postBillboard(billboard: postBillboard): Observable<any> {
@@ -54,7 +54,7 @@ export class DataService {
   }
 
   postFaktura(faktura: postFaktura): Observable<any> {
-    return this.http.post<Faktura>("url", faktura);
+    return this.http.post<Faktura>("http://localhost:8080/take/firma/faktura", faktura);
   }
 
   postReklama(reklama: postReklama): Observable<any> {
@@ -69,7 +69,7 @@ export class DataService {
 
 
   deleteKlient(id: number): Observable<Klient> {
-    return this.http.delete<Klient>("url" + id);
+    return this.http.delete<Klient>("http://localhost:8080/take/firma/klient" + id);
   }
 
   deleteBillboard(id: number): Observable<Billboard> {
@@ -77,7 +77,7 @@ export class DataService {
   }
 
   deleteFaktura(id: number): Observable<Faktura> {
-    return this.http.delete<Faktura>("url" + id);
+    return this.http.delete<Faktura>("http://localhost:8080/take/firma/faktura" + id);
   }
   
   deleteReklama(id: number): Observable<Reklama> {
@@ -91,7 +91,7 @@ export class DataService {
 
 
   putKlient(klient: Klient): Observable<any> {
-    return this.http.put<Klient>("url", klient);
+    return this.http.put<Klient>("http://localhost:8080/take/firma/klient", klient);
   }
 
   putBillboard(billboard: Billboard): Observable<any> {
@@ -99,7 +99,7 @@ export class DataService {
   }
 
   putFaktura(faktura: Faktura): Observable<any> {
-    return this.http.put<Faktura>("url", faktura);
+    return this.http.put<Faktura>("http://localhost:8080/take/firma/faktura", faktura);
   }
 
   putReklama(reklama: Reklama): Observable<any> {
