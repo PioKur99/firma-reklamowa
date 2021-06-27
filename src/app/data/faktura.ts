@@ -7,7 +7,7 @@ export class Faktura {
 }
 
 export class postFaktura {
-    klientId: number;
+    //klientId: number;
     kwota: number;
     nip: String;
 }

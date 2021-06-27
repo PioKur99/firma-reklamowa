@@ -36,6 +36,7 @@ export class BillboardComponent implements OnInit {
         console.log(newBillboard)
       }
     )
+    this.getBillboards()
   }
 
   removeBillboard(billboard: Billboard): void {

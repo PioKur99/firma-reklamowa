@@ -32,7 +32,7 @@ export class DataService {
   }
 
   getPowieszoneReklamy(): Observable<BillboardReklama[]> {
-    return this.http.get<BillboardReklama[]>("url")
+    return this.http.get<BillboardReklama[]>("http://localhost:8080/take/firma/billboardReklama")
   }
 
   getFakturyKlienta(id: number): Observable<Faktura[]> {
@@ -62,7 +62,7 @@ export class DataService {
   }
 
   postPowieszonaReklama(reklama: postBillboardReklama): Observable<any> {
-    return this.http.post<BillboardReklama>("url", reklama)
+    return this.http.post<BillboardReklama>("http://localhost:8080/take/firma/billboardReklama/3/12", reklama)
   }
 
 
@@ -107,7 +107,7 @@ export class DataService {
   }
 
   putPowieszonaReklama(reklama: BillboardReklama): Observable<any> {
-    return this.http.put<BillboardReklama>("url", reklama)
+    return this.http.put<BillboardReklama>("http://localhost:8080/take/firma/billboardReklama", reklama)
   }
 
 }

@@ -37,6 +37,7 @@ export class ReklamaComponent implements OnInit {
         console.log(data)
       }
     )
+    this.getReklamy()
   }
 
   removeReklama(reklama: Reklama): void {

@@ -11,8 +11,8 @@ import { Klient, postKlient } from '../data/klient';
 })
 export class KlientComponent implements OnInit {
 
-  klienci: Klient[] = [{idc: 0, imie: "a", nazwisko:  "b", pesel: "12321"},
-                      {idc: 0, imie: "aaa", nazwisko:  "bbb", pesel: "1232232321"}
+  klienci: Klient[] = [{id: 0, imie: "a", nazwisko:  "b", pesel: "12321"},
+                      {id: 0, imie: "aaa", nazwisko:  "bbb", pesel: "1232232321"}
   ];
 
   faktury: Faktura[] = [{id: 0, klientId: 0, kwota: 199.99, nip: "645293293293"},
@@ -26,6 +26,7 @@ showTable: boolean = false
   constructor(private dataManager: DataService) { }
 
   ngOnInit(): void {
+    this.getClients()
   }
 
   getFaktury(): void {
@@ -41,13 +42,14 @@ showTable: boolean = false
     this.dataManager.getKlienci().subscribe(
       clients => {
         this.klienci = clients
+        console.log(clients)
       }
     )
   }
 
   addClient(): void {
     
-    this.klienci.push({idc: 0, imie: "a", nazwisko:  "a", pesel: "0"});
+    this.klienci.push({id: 0, imie: "a", nazwisko:  "a", pesel: "0"});
     let toAdd: postKlient = {imie: this.klienci[this.klienci.length -1].imie ,
                             nazwisko: this.klienci[this.klienci.length -1].nazwisko,
                             pesel: this.klienci[this.klienci.length -1].pesel}
@@ -56,10 +58,11 @@ showTable: boolean = false
         console.log(newClient)
       }
     )
+    this.getClients()
   }
 
   removeClient(klient: Klient): void {
-    this.dataManager.deleteKlient(klient.idc).subscribe(
+    this.dataManager.deleteKlient(klient.id).subscribe(
       data => {
         console.log(data)
       }

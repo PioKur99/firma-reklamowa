@@ -1,6 +1,6 @@
 
 export class Klient {
-    idc: number;
+    id: number;
     imie: String;
     nazwisko: String;
     pesel: String;

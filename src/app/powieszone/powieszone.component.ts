@@ -30,7 +30,7 @@ export class PowieszoneComponent implements OnInit {
 
   addPowieszona(): void {
     let newPowieszona: BillboardReklama = 
-    {idBillboardu: 3, idReklamy: 1, kwota: 99.99, dataPowieszenia: "25-05-2021", dataSciagniecia: "25-06-2021"}
+    {idBillboardu: 3, idReklamy: 12, kwota: 99.99, dataPowieszenia: "2021-12-12", dataSciagniecia: "2021-12-12"}
 
     let postPowieszona: postBillboardReklama = {kwota: newPowieszona.kwota,
     dataPowieszenia: newPowieszona.dataPowieszenia, dataSciagniecia: newPowieszona.dataSciagniecia}
@@ -41,6 +41,7 @@ export class PowieszoneComponent implements OnInit {
       }
     )
     this.powieszone.push(newPowieszona)
+    this.getPowieszone()
   }
 
   removePowieszona(reklama: BillboardReklama): void {

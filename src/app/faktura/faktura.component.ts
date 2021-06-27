@@ -24,6 +24,7 @@ export class FakturaComponent implements OnInit {
   constructor(private dataManager: DataService) { }
 
   ngOnInit(): void {
+    this.getFaktury()
   }
 
   getBillboards(): void {
@@ -40,13 +41,14 @@ export class FakturaComponent implements OnInit {
     this.dataManager.getFaktury().subscribe(
       data => {
         this.faktury = data
+        console.log(data)
       }
     )
   }
 
   addFaktura(): void {
     this.faktury.push({id: 0, klientId: 0, kwota: 399.99, nip: "645293293293"});
-    let toAdd: postFaktura = {klientId: this.faktury[this.faktury.length -1].klientId,
+    let toAdd: postFaktura = {/*klientId: this.faktury[this.faktury.length -1].klientId,*/
                               kwota: this.faktury[this.faktury.length -1].kwota,
                               nip: this.faktury[this.faktury.length -1].nip}
 
@@ -55,6 +57,7 @@ export class FakturaComponent implements OnInit {
         console.log(newFaktura)
       }
     )
+    this.getFaktury()
   }
 
   removeFaktura(faktura: Faktura): void {
