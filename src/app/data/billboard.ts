@@ -1,7 +1,7 @@
 
 export class Billboard {
     id: number;
-    faktura: number;
+    idf: number;
     adres: String;
 }
 

@@ -33,8 +33,25 @@
     </tr>
     <tr *ngFor = "let faktura of faktury">
         <td>{{faktura.id}}</td>
-        <td><input type="text" [(ngModel)] = "faktura.klientId"></td>
+        <td><input type="text" [(ngModel)] = "faktura.idk"></td>
         <td><input type="text" [(ngModel)] = "faktura.kwota"></td>
         <td><input type="text" [(ngModel)] = "faktura.nip"></td>
+    </tr>
+</table>
+
+<p class = "tag">Wprowadź ID klienta, by wyświetlić przypisane do niego reklamy</p>
+<div class = "search">
+    <input type="text" [(ngModel)] = "searchIDReklamy">
+    <button (click) = "getReklamy()">Pokaż</button>
+</div>
+
+<table *ngIf = "showTableReklamy">
+    <tr>
+        <td>ID</td>
+        <td>TREŚĆ</td>
+    </tr>
+    <tr *ngFor = "let reklama of reklamy">
+        <td>{{reklama.id}}</td>
+        <td>{{reklama.tresc}}</td>
     </tr>
 </table>

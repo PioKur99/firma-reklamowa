@@ -9,9 +9,7 @@ import { Reklama, postReklama } from '../data/reklama';
 })
 export class ReklamaComponent implements OnInit {
 
-  reklamy: Reklama[] = [{id: 0, tresc: "Padłeś powstań"},
-  {id: 0, tresc: "Ziemniaki 3.50"}
-];
+  reklamy: Reklama[] = [];
 
 
   constructor(private dataManager: DataService) { }
@@ -30,7 +28,7 @@ export class ReklamaComponent implements OnInit {
   }
 
   addReklama(): void {
-    this.reklamy.push({id: 0, tresc: "Kup 8 żubrów zapłać jak za 4"})
+    this.reklamy.push({id: 0, tresc: ""})
     let toAdd: postReklama = {tresc: this.reklamy[this.reklamy.length - 1].tresc}
     this.dataManager.postReklama(toAdd).subscribe(
       data => {

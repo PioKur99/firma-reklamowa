@@ -8,7 +8,7 @@
     </tr>
     <tr *ngFor = "let faktura of faktury">
         <td>{{faktura.id}}</td>
-        <td><input type="text" [(ngModel)] = "faktura.klientId"></td>
+        <td><input type="text" [(ngModel)] = "faktura.idk"></td>
         <td><input type="text" [(ngModel)] = "faktura.kwota"></td>
         <td><input type="text" [(ngModel)] = "faktura.nip"></td>
         <td>
@@ -32,7 +32,7 @@
     </tr>
     <tr *ngFor = "let billboard of billboardy">
         <td>{{billboard.id}}</td>
-        <td>{{billboard.faktura}}</td>
+        <td>{{billboard.idf}}</td>
         <td>{{billboard.adres}}</td>
     </tr>
 </table>

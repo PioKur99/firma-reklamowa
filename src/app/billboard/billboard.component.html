@@ -7,7 +7,7 @@
     </tr>
     <tr *ngFor = "let billboard of billboardy">
         <td>{{billboard.id}}</td>
-        <td><input type="text" [(ngModel)] = "billboard.faktura"></td>
+        <td><input type="text" [(ngModel)] = "billboard.idf"></td>
         <td><input type="text" [(ngModel)] = "billboard.adres"></td>
         <td>
             <button (click) = "removeBillboard(billboard)">USUŃ</button>

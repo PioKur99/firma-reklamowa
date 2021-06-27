@@ -1,5 +1,6 @@
 <table>
     <tr>
+        <td>ID</td>
         <td>ID BILLBOARDU</td>
         <td>ID REKLAMY</td>
         <td>KWOTA</td>
@@ -8,8 +9,9 @@
         <td><button class = "add" (click) = "addPowieszona()">DODAJ</button></td>
     </tr>
     <tr *ngFor = "let reklama of powieszone">
-        <td><input type="text" [(ngModel)] = "reklama.idBillboardu"></td>
-        <td><input type="text" [(ngModel)] = "reklama.idReklamy"></td>
+        <td>{{reklama.id}}</td>
+        <td><input type="text" [(ngModel)] = "reklama.idb"></td>
+        <td><input type="text" [(ngModel)] = "reklama.idr"></td>
         <td><input type="text" [(ngModel)] = "reklama.kwota"></td>
         <td><input type="text" [(ngModel)] = "reklama.dataPowieszenia"></td>
         <td><input type="text" [(ngModel)] = "reklama.dataSciagniecia"></td>

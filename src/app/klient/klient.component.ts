@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Faktura } from '../data/faktura';
 import { Klient, postKlient } from '../data/klient';
+import { Reklama } from '../data/reklama';
 
 
 @Component({
@@ -11,16 +12,16 @@ import { Klient, postKlient } from '../data/klient';
 })
 export class KlientComponent implements OnInit {
 
-  klienci: Klient[] = [{id: 0, imie: "a", nazwisko:  "b", pesel: "12321"},
-                      {id: 0, imie: "aaa", nazwisko:  "bbb", pesel: "1232232321"}
-  ];
+  klienci: Klient[] = [];
 
-  faktury: Faktura[] = [{id: 0, klientId: 0, kwota: 199.99, nip: "645293293293"},
-  {id: 0, klientId: 0, kwota: 299.99, nip: "645293293293"}
-];
+  faktury: Faktura[] = [];
+
+  reklamy: Reklama[] = [];
 
 searchID: number = 0
+searchIDReklamy: number = 0
 showTable: boolean = false
+showTableReklamy: boolean = false
   
 
   constructor(private dataManager: DataService) { }
@@ -29,9 +30,18 @@ showTable: boolean = false
     this.getClients()
   }
 
+  getReklamy(): void {
+    this.showTableReklamy = true
+    this.dataManager.getReklamyKlienta(this.searchIDReklamy).subscribe(
+      data => {
+        this.reklamy = data
+      }
+    )
+  }
+
   getFaktury(): void {
     this.showTable = true
-    this.dataManager.getFaktury().subscribe(
+    this.dataManager.getFakturyKlienta(this.searchID).subscribe(
       data => {
         this.faktury = data
       }
@@ -49,7 +59,7 @@ showTable: boolean = false
 
   addClient(): void {
     
-    this.klienci.push({id: 0, imie: "a", nazwisko:  "a", pesel: "0"});
+    this.klienci.push({id: 0, imie: "", nazwisko:  "", pesel: ""});
     let toAdd: postKlient = {imie: this.klienci[this.klienci.length -1].imie ,
                             nazwisko: this.klienci[this.klienci.length -1].nazwisko,
                             pesel: this.klienci[this.klienci.length -1].pesel}

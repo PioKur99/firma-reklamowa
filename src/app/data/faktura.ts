@@ -1,7 +1,7 @@
 
 export class Faktura {
     id: number;
-    klientId: number;
+    idk: number;
     kwota: number;
     nip: String;
 }

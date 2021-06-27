@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: 'klienci', component: KlientComponent},
   {path: 'faktury', component: FakturaComponent},
   {path: 'billboardy', component: BillboardComponent},
-  {path: 'dupa', component: ReklamaComponent},
+  {path: 'reklamy', component: ReklamaComponent},
   {path: 'powieszone-reklamy', component: PowieszoneComponent}
 ];
 

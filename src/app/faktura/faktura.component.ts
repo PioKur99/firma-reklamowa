@@ -10,13 +10,9 @@ import { Faktura, postFaktura } from '../data/faktura';
 })
 export class FakturaComponent implements OnInit {
 
-  faktury: Faktura[] = [{id: 0, klientId: 0, kwota: 199.99, nip: "645293293293"},
-  {id: 0, klientId: 0, kwota: 299.99, nip: "645293293293"}
-];
+  faktury: Faktura[] = [];
 
-  billboardy: Billboard[] = [{id: 1, faktura: 1, adres:  "Radzionków, ul. Grenadierów 25/3"},
-{id: 2, faktura: 1, adres:  "Bytom, ul. Podmiejska 39/13"}
-];
+  billboardy: Billboard[] = [];
 
   searchID: number = 0
   showTable: boolean = false
@@ -29,7 +25,7 @@ export class FakturaComponent implements OnInit {
 
   getBillboards(): void {
     this.showTable = true
-    this.dataManager.getBillboardy().subscribe(
+    this.dataManager.getBillboardyFaktury(this.searchID).subscribe(
       billboardy => {
         this.billboardy = billboardy
         console.log(billboardy)
@@ -47,9 +43,8 @@ export class FakturaComponent implements OnInit {
   }
 
   addFaktura(): void {
-    this.faktury.push({id: 0, klientId: 0, kwota: 399.99, nip: "645293293293"});
-    let toAdd: postFaktura = {/*klientId: this.faktury[this.faktury.length -1].klientId,*/
-                              kwota: this.faktury[this.faktury.length -1].kwota,
+    this.faktury.push({id: 0, idk: 0, kwota: 0, nip: ""});
+    let toAdd: postFaktura = {kwota: this.faktury[this.faktury.length -1].kwota,
                               nip: this.faktury[this.faktury.length -1].nip}
 
     this.dataManager.postFaktura(toAdd).subscribe(

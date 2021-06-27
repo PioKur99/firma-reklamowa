@@ -9,9 +9,7 @@ import { Billboard, postBillboard } from '../data/billboard';
 })
 export class BillboardComponent implements OnInit {
 
-  billboardy: Billboard[] = [{id: 1, faktura: 1, adres:  "Radzionków, ul. Grenadierów 25/3"},
-  {id: 2, faktura: 1, adres:  "Bytom, ul. Podmiejska 39/13"}
-];
+  billboardy: Billboard[] = [];
 
   constructor(private dataManager: DataService) { }
 
@@ -29,7 +27,7 @@ export class BillboardComponent implements OnInit {
   }
 
   addBillboard(): void {
-    this.billboardy.push({id: 0, faktura: 0, adres:  "Chorzów, ul. Batorego 42"});
+    this.billboardy.push({id: 0, idf: 0, adres:  ""});
     let toAdd: postBillboard = {adres: this.billboardy[this.billboardy.length - 1].adres}
     this.dataManager.postBillboard(toAdd).subscribe(
       newBillboard => {

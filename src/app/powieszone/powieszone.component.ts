@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { BillboardReklama, postBillboardReklama } from '../data/billboard-reklama';
+import { BillboardReklama } from '../data/billboard-reklama';
 
 @Component({
   selector: 'app-powieszone',
@@ -9,9 +9,7 @@ import { BillboardReklama, postBillboardReklama } from '../data/billboard-reklam
 })
 export class PowieszoneComponent implements OnInit {
 
-  powieszone: BillboardReklama[] = 
-  [{idBillboardu: 1, idReklamy: 1, kwota: 199.99, dataPowieszenia: "21-01-2021", dataSciagniecia: "21-02-2021"},
-  {idBillboardu: 2, idReklamy: 1, kwota: 299.99, dataPowieszenia: "01-03-2021", dataSciagniecia: "02-04-2021"}]
+  powieszone: BillboardReklama[] = [];
 
   constructor(private dataManager: DataService) { }
 
@@ -30,22 +28,20 @@ export class PowieszoneComponent implements OnInit {
 
   addPowieszona(): void {
     let newPowieszona: BillboardReklama = 
-    {idBillboardu: 3, idReklamy: 12, kwota: 99.99, dataPowieszenia: "2021-12-12", dataSciagniecia: "2021-12-12"}
+    { id: 0, idb: 0, idr: 0, kwota: 0, dataPowieszenia: "", dataSciagniecia: ""}
 
-    let postPowieszona: postBillboardReklama = {kwota: newPowieszona.kwota,
-    dataPowieszenia: newPowieszona.dataPowieszenia, dataSciagniecia: newPowieszona.dataSciagniecia}
-
-    this.dataManager.postPowieszonaReklama(postPowieszona).subscribe(
+    this.dataManager.postPowieszonaReklama(newPowieszona).subscribe(
       data => {
         console.log(data)
       }
     )
-    this.powieszone.push(newPowieszona)
     this.getPowieszone()
+    this.powieszone.push(newPowieszona)
+    
   }
 
   removePowieszona(reklama: BillboardReklama): void {
-    this.dataManager.deletePowieszonaReklama(reklama.idBillboardu).subscribe(
+    this.dataManager.deletePowieszonaReklama(reklama.id).subscribe(
       data => {
         console.log(data)
       }

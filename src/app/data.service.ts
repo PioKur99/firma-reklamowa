@@ -5,7 +5,7 @@ import { Faktura, postFaktura } from './data/faktura';
 import { Billboard, postBillboard } from './data/billboard';
 import { Reklama, postReklama } from './data/reklama';
 import { Observable } from 'rxjs';
-import { BillboardReklama, postBillboardReklama } from './data/billboard-reklama';
+import { BillboardReklama } from './data/billboard-reklama';
 
 @Injectable({
   providedIn: 'root'
@@ -36,12 +36,17 @@ export class DataService {
   }
 
   getFakturyKlienta(id: number): Observable<Faktura[]> {
-    return this.http.get<Faktura[]>("url" + id)
+    return this.http.get<Faktura[]>("http://localhost:8080/take/firma/klient/getFaktury/" + id)
   }
 
   getBillboardyFaktury(id: number): Observable<Billboard[]> {
-    return this.http.get<Billboard[]>("url" + id)
+    return this.http.get<Billboard[]>("http://localhost:8080/take/firma/faktura/getBillboardy/" + id)
   }
+
+  getReklamyKlienta(id: number): Observable<Reklama[]> {
+    return this.http.get<Reklama[]>("url" + id)
+  }
+
 
 
 
@@ -61,15 +66,15 @@ export class DataService {
     return this.http.post<Reklama>("http://localhost:8080/take/firma/reklama", reklama);
   }
 
-  postPowieszonaReklama(reklama: postBillboardReklama): Observable<any> {
-    return this.http.post<BillboardReklama>("http://localhost:8080/take/firma/billboardReklama/3/12", reklama)
+  postPowieszonaReklama(reklama: BillboardReklama): Observable<any> {
+    return this.http.post<BillboardReklama>("http://localhost:8080/take/firma/billboardReklama/", reklama)
   }
 
 
 
 
   deleteKlient(id: number): Observable<Klient> {
-    return this.http.delete<Klient>("http://localhost:8080/take/firma/klient" + id);
+    return this.http.delete<Klient>("http://localhost:8080/take/firma/klient/" + id);
   }
 
   deleteBillboard(id: number): Observable<Billboard> {
@@ -77,7 +82,7 @@ export class DataService {
   }
 
   deleteFaktura(id: number): Observable<Faktura> {
-    return this.http.delete<Faktura>("http://localhost:8080/take/firma/faktura" + id);
+    return this.http.delete<Faktura>("http://localhost:8080/take/firma/faktura/" + id);
   }
   
   deleteReklama(id: number): Observable<Reklama> {
@@ -85,7 +90,7 @@ export class DataService {
   }
 
   deletePowieszonaReklama(id: number): Observable<BillboardReklama> {
-    return this.http.delete<BillboardReklama>("url" + id)
+    return this.http.delete<BillboardReklama>("http://localhost:8080/take/firma/billboardReklama/" + id)
   }
 
 
