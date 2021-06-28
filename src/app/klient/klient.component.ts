@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Billboard } from '../data/billboard';
 import { Faktura } from '../data/faktura';
 import { Klient, postKlient } from '../data/klient';
 import { Reklama } from '../data/reklama';
@@ -16,11 +17,15 @@ export class KlientComponent implements OnInit {
 
   faktury: Faktura[] = [];
 
+  billboardy: Billboard[] = []
+
   reklamy: Reklama[] = [];
 
 searchID: number = 0
+searchIDBillboardy: number = 0
 searchIDReklamy: number = 0
 showTable: boolean = false
+showTableBillboardy: boolean = false
 showTableReklamy: boolean = false
   
 
@@ -35,6 +40,17 @@ showTableReklamy: boolean = false
     this.dataManager.getReklamyKlienta(this.searchIDReklamy).subscribe(
       data => {
         this.reklamy = data
+        console.log(data)
+      }
+    )
+  }
+
+  getBillboardy(): void {
+    this.showTableBillboardy = true
+    this.dataManager.getBillboardyKlienta(this.searchIDBillboardy).subscribe(
+      data => {
+        this.billboardy = data
+        console.log(data)
       }
     )
   }

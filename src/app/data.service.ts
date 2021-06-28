@@ -43,8 +43,12 @@ export class DataService {
     return this.http.get<Billboard[]>("http://localhost:8080/take/firma/faktura/getBillboardy/" + id)
   }
 
+  getBillboardyKlienta(id: number): Observable<Billboard[]> {
+    return this.http.get<Billboard[]>("http://localhost:8080/take/firma/klient/getBillboardy/" + id)
+  }
+
   getReklamyKlienta(id: number): Observable<Reklama[]> {
-    return this.http.get<Reklama[]>("url" + id)
+    return this.http.get<Reklama[]>("http://localhost:8080/take/firma/klient/getReklamy/" + id)
   }
 
 
